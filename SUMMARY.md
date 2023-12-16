@@ -1,3 +1,4 @@
 # Table of contents
 
-* [README](README.md)
+* [1주차](week01/README.md)
+    * [1.HTTP기초](week01/HTTP의 이해.md)
