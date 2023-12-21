@@ -9,6 +9,6 @@
 
 * [2주차](week02/README.md)
     * [1.REST API](week02/01.%20REST_API.md)
-    * [2.REST API](week02/02.URI%26MIME_type.md)
-    * [3.REST API](week02/03.Collection_Pattern.md)
-    * [4.REST API](week02/04.Collection_Pattern%ED%99%9C%EC%9A%A9.md)
+    * [2.URI, MIME](week02/02.URI%26MIME_type.md)
+    * [3.Collection Pattern](week02/03.Collection_Pattern.md)
+    * [4.Collection Pattern 예시](week02/04.Collection_Pattern%ED%99%9C%EC%9A%A9.md)
