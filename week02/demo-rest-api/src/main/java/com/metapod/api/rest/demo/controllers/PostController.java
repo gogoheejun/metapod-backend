@@ -3,6 +3,7 @@ package com.metapod.api.rest.demo.controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.metapod.api.rest.demo.dtos.PostDto;
 import com.metapod.api.rest.demo.exceptions.PostNotFound;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,10 @@ public class PostController {
     }
 
     @GetMapping
-    public List<PostDto> list() {
+    public List<PostDto> list(
+            HttpServletResponse response
+    ) {
+//        response.addHeader("Access-Control-Allow-Origin", "https://seed2whale.github.io");
         List<PostDto> postDtos = List.of(
                 new PostDto("1", "제목", "테스트입니다"),
                 new PostDto("2", "2등", "222")
@@ -45,6 +49,7 @@ public class PostController {
         return postDto;
     }
 
+    @CrossOrigin("https://seed2whale.github.io")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public PostDto create(@RequestBody(required = false) PostDto postDto) {
