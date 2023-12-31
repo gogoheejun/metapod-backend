@@ -14,7 +14,7 @@
     * [4.Collection Pattern 예시](week02/04.Collection_Pattern%ED%99%9C%EC%9A%A9.md)
 
 * [3주차](week03/README.md)
-    * [1.DTO](week03/01.DTO.md)
+    * [1.DTO](week03/01.DTO%26IPC.md)
     * [2.직렬화](week03/02.%EC%A7%81%EB%A0%AC%ED%99%94.md)
     * [3.Jackson ObjectMapper](week03/03.Jackson%20ObjectMapper.md)
     * [4.CORS](week03/04.CORS.md)
