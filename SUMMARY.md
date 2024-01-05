@@ -18,3 +18,7 @@
     * [2.직렬화](week03/02.%EC%A7%81%EB%A0%AC%ED%99%94.md)
     * [3.Jackson ObjectMapper](week03/03.Jackson%20ObjectMapper.md)
     * [4.CORS](week03/04.CORS.md)
+
+* [4주차](week04/README.md)
+    * [1.Layered Architecture](week04/01.Layered%20Architecture.md)
+    * [2.DDD](week04/02.DAO%EC%99%80%20DDD.md)

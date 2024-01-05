@@ -1,5 +1,7 @@
 package com.metapod.api.rest.demo.dtos;
 
+import com.metapod.api.rest.demo.models.Post;
+
 public class PostDto {
     private String id;
     private String title;
@@ -14,6 +16,10 @@ public class PostDto {
         this.content = content;
     }
 
+    public PostDto(Post post) {
+        this(post.id().toString(), post.title(), post.content().toString());
+    }
+
     public String getId() {
         return id;
     }
@@ -26,4 +32,15 @@ public class PostDto {
         return content;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }

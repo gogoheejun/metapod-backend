@@ -1,6 +1,6 @@
 package com.metapod.api.rest.demo.controllers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.metapod.api.rest.demo.application.PostService;
 import com.metapod.api.rest.demo.dtos.PostDto;
 import com.metapod.api.rest.demo.exceptions.PostNotFound;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,22 +13,22 @@ import java.util.List;
 @RequestMapping("/posts")
 public class PostController {
 
-    private final ObjectMapper objectMapper;
+//    private final ObjectMapper objectMapper;
+//
+//    public PostController(ObjectMapper objectMapper) {
+//        this.objectMapper = objectMapper;
+//    }
 
-    public PostController(ObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
+    private final PostService postService;
+
+    public PostController() {
+        this.postService = new PostService();
     }
 
     @GetMapping
-    public List<PostDto> list(
-            HttpServletResponse response
-    ) {
+    public List<PostDto> list(HttpServletResponse response) {
 //        response.addHeader("Access-Control-Allow-Origin", "https://seed2whale.github.io");
-        List<PostDto> postDtos = List.of(
-                new PostDto("1", "제목", "테스트입니다"),
-                new PostDto("2", "2등", "222")
-        );
-        return postDtos;
+        return postService.getPostDtos();
     }
 
     /**
@@ -44,8 +44,8 @@ public class PostController {
 //    }
     @GetMapping("/{id}")
     public PostDto detail(@PathVariable String id) {
-        PostDto postDto = new PostDto(id, "제목", "테스트입니다.");
-
+//        PostDto postDto = new PostDto(id, "제목", "테스트입니다.");
+        PostDto postDto = postService.getPostDto(id);
         return postDto;
     }
 
@@ -54,7 +54,12 @@ public class PostController {
     @ResponseStatus(HttpStatus.CREATED)
     public PostDto create(@RequestBody(required = false) PostDto postDto) {
 
-        return postDto;
+//        String id = UlidCreator.getUlid().toString();
+//        postDto.setId(id);
+//
+//        postDtos.add(postDto);
+
+        return postService.createPost(postDto);
 
 //        return "{\"action\": \"게시물 생성\" , \"body\": " + body + "}";
     }
@@ -66,13 +71,14 @@ public class PostController {
 
     @PatchMapping("/{id}")
     public PostDto update(@PathVariable("id") String id, @RequestBody PostDto postDto) {
-        return postDto;
+        return postService.updatePost(id, postDto);
     }
 
 
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable("id") String id) {
-        return "게시물 삭제: " + id;
+    public PostDto delete(@PathVariable("id") String id) {
+//        return "게시물 삭제: " + id;
+        return postService.deletePost(id);
     }
 
     @ExceptionHandler(PostNotFound.class)

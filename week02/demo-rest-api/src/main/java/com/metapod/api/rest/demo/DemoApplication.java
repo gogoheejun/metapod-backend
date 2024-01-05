@@ -20,7 +20,7 @@ public class DemoApplication {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
-                        .allowedOrigins("https://seed2whale.github.io");
+                        .allowedOrigins("https://seed2whale.github.io"); //https://seed2whale.github.io/backend-survival-week03-front/
             }
         };
     }
